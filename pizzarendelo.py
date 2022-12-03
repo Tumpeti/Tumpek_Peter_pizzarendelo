@@ -31,6 +31,7 @@ A rendelések felvétele után készítsünk statisztikát!
 7 + menü indítása ahol lehet választani, hogy rendelést adunk le, vagy adatokat, statisztikákat nézünk
 
 """
+import pizza_fuggvenyek
 
 """
 pizzarendelo():
@@ -66,61 +67,14 @@ statisztika1(): 2, 3 4 stb....
 
 ne legyenek kódismétlések, azokat ki kell szervezni függvénybe
 """
-
-pizza_fajtak = []
-pizza_meretek = []
-pizza_feltetek = []
-pizza_arak = []
-
-def fajta_bekero():
-    fajta = input("Milyen típusú pizzát szeretne? sa/go/so ")
-    return fajta
+pizza_fuggvenyek.diszites(" ")
+pizza_fuggvenyek.diszites("*")
+pizza_fuggvenyek.szovekiiras("Üdvözlöm a pizzarendelő alkalmazásban!"," ")
+pizza_fuggvenyek.diszites("*")
+pizza_fuggvenyek.diszites()
+pizza_fuggvenyek.menuindito(pizza_fuggvenyek.menuvalaszto())
 
 
-def meret_bekero():
-    meret = input("Mekkora pizzát szeretne? ki/no/na ")
-    return meret
 
-
-def feltet_bekero():
-    feltet = input("Kér extra feltétet? igen/nem ")
-    return feltet
-
-
-def rendelesfelvetel():
-    i = 0
-    while input("Kíván pizzarendelést leadni? igen/nem ") != "nem":
-        pizza_fajtak.append(fajta_bekero())
-        pizza_arak.append(arszamitas(i))
-        i += 1
-    rendeles_kiirasa()
-
-def rendeles_kiirasa():
-    print(pizza_arak)
-    print(pizza_fajtak)
-    print(pizza_meretek)
-    print(pizza_feltetek)
-
-def arszamitas(i):
-    ar = 0
-    if pizza_fajtak[i] == "sa":
-        ar = 1000
-    elif pizza_fajtak[i] == "go":
-        ar = 1100
-    elif pizza_fajtak[i] == "so":
-        ar = 1200
-    pizza_meretek.append(meret_bekero())
-    if pizza_meretek[i] == "ki":
-        ar = ar * 0.9
-    elif pizza_meretek[i] == "no":
-        ar = ar * 1
-    elif pizza_meretek[i] == "na":
-        ar = ar * 1.1
-    pizza_feltetek.append(feltet_bekero())
-    if pizza_feltetek[i] == "igen":
-        ar += 50
-    return ar
-
-rendelesfelvetel()
 
 
